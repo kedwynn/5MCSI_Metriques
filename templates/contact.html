@@ -2,72 +2,79 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Formulaire Style Instagram</title>
+  <title>Formulaire Coloré</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fafafa;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      margin: 0;
     }
 
     .container {
-      background: white;
-      width: 350px;
+      width: 360px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
       padding: 40px 30px;
-      border: 1px solid #dbdbdb;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      color: white;
     }
 
     .logo {
-      font-size: 32px;
+      font-size: 36px;
       font-family: 'Segoe Script', cursive;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     input {
       width: 100%;
-      padding: 10px;
-      margin: 6px 0;
-      border: 1px solid #dbdbdb;
-      background-color: #fafafa;
-      border-radius: 4px;
+      padding: 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.9);
       font-size: 14px;
+      outline: none;
     }
 
     button {
       width: 100%;
-      background-color: #3897f0;
-      color: white;
+      padding: 12px;
+      margin-top: 15px;
+      background: #ff4f81;
       border: none;
-      padding: 10px;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
       font-weight: bold;
-      border-radius: 4px;
-      margin-top: 10px;
       cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ff2b63;
     }
 
     .separator {
+      margin: 20px 0;
       display: flex;
       align-items: center;
-      width: 100%;
-      margin: 20px 0;
+      color: #fff;
     }
 
     .separator div {
       flex: 1;
       height: 1px;
-      background: #dbdbdb;
+      background: rgba(255,255,255,0.6);
     }
 
     .separator span {
       margin: 0 10px;
-      color: #8e8e8e;
-      font-size: 13px;
       font-weight: bold;
     }
 
@@ -77,7 +84,8 @@
     }
 
     .signup a {
-      color: #3897f0;
+      color: #ffd6f0;
+      font-weight: bold;
       text-decoration: none;
     }
   </style>
@@ -85,12 +93,12 @@
 <body>
 
   <div class="container">
-    <div class="logo">Formmulaire</div>
+    <div class="logo">Instagram+</div>
 
     <form>
-      <input type="text" placeholder="Numéro de téléphone, nom d’utilisateur ou e-mail" required>
+      <input type="text" placeholder="E-mail ou nom d’utilisateur" required>
       <input type="password" placeholder="Mot de passe" required>
-      <button type="submit">Se connecter</button>
+      <button type="submit">Connexion</button>
     </form>
 
     <div class="separator">
@@ -98,7 +106,7 @@
     </div>
 
     <div class="signup">
-      Vous n’avez pas de compte ? <a href="#">Inscrivez-vous</a>
+      Pas de compte ? <a href="#">Créer un compte</a>
     </div>
   </div>
 
