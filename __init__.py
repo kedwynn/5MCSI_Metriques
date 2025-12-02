@@ -16,7 +16,9 @@ app = Flask(__name__)
 def contact():
     return render_template("contact.html")
 
-# Récupération des commits depuis le repo d'origine
+@app.route('/commits_data/')
+def commits():
+    # Récupération des commits depuis le repo d'origine
     response = urlopen("https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits")
     raw = response.read()
     json_content = json.loads(raw.decode("utf-8"))
@@ -42,9 +44,9 @@ def contact():
 
     return jsonify(results=results)
 
-@app.route("/commits/")
+@app.route("/commit/")
 def commits_graph():
-    return render_template("commits.html")
+    return render_template("commit.html")
 
 @app.route("/rapport/")
 def mongraphique():
