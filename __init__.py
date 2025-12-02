@@ -11,9 +11,6 @@ app = Flask(__name__)
 def MaPremiereAPI():
     return "<h2>Ma page de contact</h2>"
 
-@app.route("/histogramme/")
-def mongraphique():
-    return render_template("histogramme.html")
 
 @app.route("/rapport/")
 def mongraphique():
