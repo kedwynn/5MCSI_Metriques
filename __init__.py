@@ -11,11 +11,35 @@ app = Flask(__name__)
 def contact():
     return render_template("contact.html")
 
-@app.route('/extract-minutes/<date_string>')
-def extract_minutes(date_string):
-        date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
-        minutes = date_object.minute
-        return jsonify({'minutes': minutes})
+# Récupération des commits depuis le repo d'origine
+    response = urlopen("https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits")
+    raw = response.read()
+    json_content = json.loads(raw.decode("utf-8"))
+
+    # Dictionnaire : minute → nombre de commits
+    minute_counts = {}
+
+    for commit in json_content:
+        date_string = commit["commit"]["author"]["date"]  # ex "2024-02-11T11:57:27Z"
+
+        # Extraire la minute
+        date_obj = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%SZ")
+        minute = date_obj.minute  # ex 57
+
+        # Compter les commits par minute
+        if minute not in minute_counts:
+            minute_counts[minute] = 1
+        else:
+            minute_counts[minute] += 1
+
+    # Transformer en tableau exploitable par Google Charts
+    results = [{"minute": m, "count": c} for m, c in minute_counts.items()]
+
+    return jsonify(results=results)
+
+@app.route("/commits/")
+def commits_graph():
+    return render_template("commits.html")
 
 @app.route("/rapport/")
 def mongraphique():
