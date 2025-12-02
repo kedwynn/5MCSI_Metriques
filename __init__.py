@@ -11,6 +11,12 @@ app = Flask(__name__)
 def contact():
     return render_template("contact.html")
 
+@app.route('/extract-minutes/<date_string>')
+def extract_minutes(date_string):
+        date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+        minutes = date_object.minute
+        return jsonify({'minutes': minutes})
+
 @app.route("/rapport/")
 def mongraphique():
     return render_template("graphique.html")
