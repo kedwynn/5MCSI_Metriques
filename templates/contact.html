@@ -26,12 +26,12 @@
     }
 
     .logo {
-      font-size: 36px;
+      font-size: 32px;
       font-family: 'Segoe Script', cursive;
       margin-bottom: 20px;
     }
 
-    input {
+    input, textarea {
       width: 100%;
       padding: 12px;
       margin: 8px 0;
@@ -40,6 +40,11 @@
       background: rgba(255,255,255,0.9);
       font-size: 14px;
       outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
     }
 
     button {
@@ -77,36 +82,22 @@
       margin: 0 10px;
       font-weight: bold;
     }
-
-    .signup {
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    .signup a {
-      color: #ffd6f0;
-      font-weight: bold;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="logo">Instagram+</div>
+    <div class="logo">Contact</div>
 
     <form>
-      <input type="text" placeholder="E-mail ou nom d’utilisateur" required>
-      <input type="password" placeholder="Mot de passe" required>
-      <button type="submit">Connexion</button>
+      <input type="text" placeholder="Nom" required>
+      <input type="text" placeholder="Prénom" required>
+      <textarea placeholder="Votre message…" required></textarea>
+      <button type="submit">Envoyer</button>
     </form>
 
     <div class="separator">
-      <div></div><span>OU</span><div></div>
-    </div>
-
-    <div class="signup">
-      Pas de compte ? <a href="#">Créer un compte</a>
+      <div></div><span>Merci !</span><div></div>
     </div>
   </div>
 
